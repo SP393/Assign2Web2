@@ -1,0 +1,45 @@
+<h2>Contact Us</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact-form">
+  <label>Name:</label>
+  <input formControlName="name" />
+  <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid">Name is required.</div>
+
+  <label>Email:</label>
+  <input formControlName="email" />
+  <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid">Valid email required.</div>
+
+  <label>Phone Number:</label>
+  <input formControlName="phone" />
+  <div *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid">Valid phone number required.</div>
+
+  <label>Message:</label>
+  <textarea formControlName="message"></textarea>
+  <div *ngIf="form.get('message')?.touched && form.get('message')?.invalid">Message is required.</div>
+
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
+
+<hr />
+
+<h3>Submitted Contacts</h3>
+<table *ngIf="submittedData.length > 0" class="contact-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of submittedData">
+      <td>{{ data.name }}</td>
+      <td>{{ data.email }}</td>
+      <td>{{ data.phone }}</td>
+      <td>{{ data.message }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="submittedData.length === 0">No contact info submitted yet.</p>

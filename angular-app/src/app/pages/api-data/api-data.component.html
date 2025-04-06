@@ -1,0 +1,10 @@
+<h2>List of Canadian Universities</h2>
+<ul *ngIf="universities.length; else loading">
+  <li *ngFor="let uni of universities">
+    <strong>{{ uni.name }}</strong> - 
+    <a [href]="uni.web_pages[0]" target="_blank">{{ uni.web_pages[0] }}</a>
+  </li>
+</ul>
+<ng-template #loading>
+  <p>Loading universities...</p>
+</ng-template>

@@ -1,0 +1,52 @@
+.home-container {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    color: #003300;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #003300;
+  }
+  
+  p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #004d00;
+  }
+  
+  .home-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .home-button {
+    background-color: #003300;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #005500;
+  }
+  
+  .home-button.secondary {
+    background-color: transparent;
+    border: 2px solid #003300;
+    color: #003300;
+  }
+  
+  .home-button.secondary:hover {
+    background-color: #003300;
+    color: #ffffff;
+  }
+  
