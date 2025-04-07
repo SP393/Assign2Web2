@@ -1,17 +1,12 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
-
 const fetch = require('node-fetch');
 
-module.exports = async function handler(req: VercelRequest, res: VercelResponse) {
-  const url = 'http://universities.hipolabs.com/search?country=canada';
-
+module.exports = async function handler(req, res) {
   try {
-    const response = await fetch(url);
+    const response = await fetch('http://universities.hipolabs.com/search?country=canada');
     const data = await response.json();
     res.status(200).json(data);
   } catch (error) {
-    console.error('Proxy error:', error);  // ✅ log the error
-
-    res.status(500).json({ error: 'Failed to fetch university data' });
+    console.error('API Proxy Error:', error);
+    res.status(500).json({ error: 'Failed to fetch data from source API.' });
   }
-}
+};
