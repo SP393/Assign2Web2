@@ -8,12 +8,13 @@ export interface University {
   country: string;
   alpha_two_code: string;
 }
-
+const proxy = 'https://cors-anywhere.herokuapp.com/';
+const url = 'http://universities.hipolabs.com/search?country=canada';
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   constructor(private http: HttpClient) {}
 
   getUniversities(): Observable<University[]> {
-    return this.http.get<University[]>('http://universities.hipolabs.com/search?country=canada');
+    return this.http.get<University[]>('/api/universities');
   }
 }
