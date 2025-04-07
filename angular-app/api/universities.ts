@@ -9,7 +9,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const response = await fetch(url);
     const data = await response.json();
     res.status(200).json(data);
-  } catch (err) {
+  } catch (error) {
+    console.error('Proxy error:', error);  // ✅ log the error
+
     res.status(500).json({ error: 'Failed to fetch university data' });
   }
 }
